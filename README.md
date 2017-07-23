@@ -7,7 +7,8 @@ This project is a [Cycle.js](https://cycle.js.org/) demo, built with webpack.
 ``` cmd
 // Download
 git clone https://github.com/godbasin/cyclejs-demo.git
-cd senseface-white-projec
+cd cyclejs-demo
+
 // npm install
 npm install
 
