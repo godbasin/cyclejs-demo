@@ -1,26 +1,26 @@
-# cycle.js demo
+# Cycle.js demo
 
 ## Instructions
-This project is a [Cycle.js](https://cycle.js.org/) demo, built with webpack.
+A [Cycle.js](https://cycle.js.org/) demo built with webpack.
 
 ## Download and install
 ``` cmd
-// Download
+# Download
 git clone https://github.com/godbasin/cyclejs-demo.git
 cd cyclejs-demo
 
-// npm install
+# npm install
 npm install
 
-// install webpack --global
+# install webpack --global
 npm install --global webpack
 ```         
                      
-## 使用                         
+## Use                         
 ``` cmd
-// start
+# start project
 npm run dev
 
-// build
+# build project
 npm run build
 ``                
