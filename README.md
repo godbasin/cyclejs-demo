@@ -3,6 +3,10 @@
 ## Instructions
 A [Cycle.js](https://cycle.js.org/) demo built with webpack.
 
+Related plugins or libs:
+- webpack2
+- cyclic-router
+
 ## Download and install
 ``` cmd
 # Download

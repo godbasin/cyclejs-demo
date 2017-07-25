@@ -16,7 +16,9 @@
     "@cycle/dom": "^18.0.0",
     "@cycle/run": "^3.1.0",
     "babel-plugin-transform-react-jsx": "^6.24.1",
+    "cyclic-router": "^4.0.5",
     "snabbdom-jsx": "^0.3.1",
+    "switch-path": "^1.2.0",
     "xstream": "^10.9.0"
   },
   "devDependencies": {
