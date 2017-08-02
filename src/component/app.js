@@ -3,7 +3,7 @@ import {run} from '@cycle/run';
 import {makeDOMDriver} from '@cycle/dom';
 import {html} from 'snabbdom-jsx';
 
-export function App(sources) {
+export function AppComponent(sources) {
   const sinks = {
     DOM: sources.DOM.select('input').events('click')
       .map(ev => ev.target.checked)

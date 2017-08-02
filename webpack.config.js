@@ -14,20 +14,32 @@ var config = {
         rules: [
             // 为webpack指定loaders
             {
-                test: /\.js$/,
-                use: ["source-map-loader"],
-                enforce: "pre"
-            },
-            {
                 test: /\.jsx?$/,
                 use: ['babel-loader'],
                 exclude: /node_modules/
-            }
+            },
+            {
+                test: /\.(png|jpe?g|gif|svg)(\?.*)?$/,
+                loader: 'url-loader',
+                options: {
+                    limit: 10000,
+                    name: path.resolve(__dirname, 'img/[name].[hash:7].[ext]')
+                }
+            },
+            {
+                test: /\.(woff2?|eot|ttf|otf)(\?.*)?$/,
+                loader: 'url-loader',
+                options: {
+                    limit: 10000,
+                    name: path.resolve(__dirname, 'fonts/[name].[hash:7].[ext]')
+                }
+            },
+            { test: /\.css$/, loader: "style-loader!css-loader" }
         ]
     },
     plugins: [
         new HtmlwebpackPlugin({
-            title: 'cycle.js demo',
+            title: 'sense-monitor',
             template: path.resolve(__dirname, 'index.html'),
             inject: 'body'
         }),
@@ -37,7 +49,7 @@ var config = {
             }
         })
     ],
-    devtool: 'source-map'
+    devtool: 'cheap-module-eval-source-map'
 };
 
 module.exports = config;
