@@ -1,10 +1,11 @@
 # Cycle.js demo
 
 ## Instructions
-A [Cycle.js](https://cycle.js.org/) demo built with webpack.
+A [Cycle.js](https://cycle.js.org/) demo built with webpack and Typescript.
 
 Related plugins or libs:
 - webpack2
+- Typescript
 - cyclic-router
 
 ## Download and install
@@ -16,8 +17,10 @@ cd cyclejs-demo
 # npm install
 npm install
 
-# install webpack --global
+# install webpack global
 npm install --global webpack
+# install typescript global
+npm install --global typescript
 ```         
                      
 ## Use                         

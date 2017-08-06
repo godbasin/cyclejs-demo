@@ -1,7 +1,6 @@
 import xs from 'xstream';
 import {run} from '@cycle/run';
 import {makeDOMDriver} from '@cycle/dom';
-import {html} from 'snabbdom-jsx';
 
 export function AppComponent(sources) {
   const sinks = {
