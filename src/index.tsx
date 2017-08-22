@@ -1,9 +1,9 @@
-import {run} from '@cycle/run'
+import {run} from '@cycle/run';
 import xs from 'xstream';
 import {makeDOMDriver} from '@cycle/dom';
 import {makeRouterDriver} from 'cyclic-router';
 import {createHashHistory} from 'history';
-import switchPath from 'switch-path';  // Required in v3, not required in v2 or below 
+import switchPath from 'switch-path';  // Required in v3, not required in v2 or below
 
 // import router
 import router from './router';

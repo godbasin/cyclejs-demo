@@ -11,7 +11,11 @@ var config = {
         filename: './bundle.js'
     },
     resolve: {
-        extensions: ['.ts', '.tsx', '.js']
+        extensions: ['.ts', '.tsx', '.js'],
+        alias: {
+            utils: path.resolve(__dirname, 'src', 'utils'),
+            components: path.resolve(__dirname, 'src', 'components'),
+        }
     },
     module: {
         rules: [

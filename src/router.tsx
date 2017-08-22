@@ -1,19 +1,19 @@
-import xs from 'xstream'
-import {AppComponent} from './component/app'
-import {LoginComponent} from './component/login'
+import xs from 'xstream';
+import {AppComponent} from './views/app';
+import {LoginComponent} from './views/login';
 
 function main(sources) {
   const match$ = sources.router.define({
     '/': LoginComponent,
     '/app': AppComponent,
   });
-  
+
   const page$ = match$.map(({path, value}) => {
     return value(Object.assign({}, sources, {
       router: sources.router.path(path)
     }));
   });
-  
+
   return {
     DOM: page$.map(c => c.DOM).flatten(),
     // get page router or init

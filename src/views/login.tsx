@@ -1,30 +1,28 @@
 import xs from 'xstream';
 import { run } from '@cycle/run';
 import { makeDOMDriver } from '@cycle/dom';
+import { InputComponent } from 'components/input';
 
 export function LoginComponent(sources) {
     const domSource = sources.DOM;
 
     // login click for router
-    const loginClick$ = domSource.select('#submit').events('click')
+    const loginClick$ = domSource.select('#submit').events('click');
 
-    // input stream for view
-    const unameInput$ = domSource.select("#username").events("input")
-        .map(ev => { return { username: ev.target.value } })
-        .startWith({ username: '' })
-    const pwdInput$ = domSource.select("#password").events("input")
-        .map(ev => { return { password: ev.target.value } })
-        .startWith({ password: '' })
+    // get password input dom and value
+    const pwdInputSource = new InputComponent(domSource, 'password');
+    const pwdInputDOM$ = pwdInputSource.getDOM();
+    const pwdInputValue$ = pwdInputSource.value;
+
+    // get username input dom and value
+    const unameInputSource = new InputComponent(domSource, 'text');
+    const unameInputDOM$ = unameInputSource.getDOM();
+    const unameInputValue$ = unameInputSource.value;
 
     // set body class
-    document.body.className = 'login'
+    document.body.className = 'login';
 
-    // state for cache of last input value
-    let state: any = {}
-
-    const loginView$ = xs.merge(unameInput$, pwdInput$).map((res: any) => {
-        state.username = res.username ? res.username : state.username;
-        state.password = res.password ? res.password : state.password;
+    const loginView$ = xs.combine(unameInputDOM$, unameInputValue$, pwdInputDOM$, pwdInputValue$).map(([unameDOM, unameValue, pwdDOM, pwdValue]) => {
         return (
 
             <div>
@@ -34,11 +32,13 @@ export function LoginComponent(sources) {
                             <form>
                                 <h1>System</h1>
                                 <div>
-                                    <input type="text" className="form-control" id="username" placeholder="username" value={state.username || ''} />
+                                    {unameDOM}
                                 </div>
+                                {unameValue}
                                 <div>
-                                    <input type="password" className="form-control" id="password" placeholder="password" value={state.password || ''} />
+                                    {pwdDOM}
                                 </div>
+                                {pwdValue}
                                 <div>
                                     <a className="btn btn-default" id="submit">Login</a>
                                 </div>
